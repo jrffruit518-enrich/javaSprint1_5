@@ -1,4 +1,4 @@
-package spring1Tasca_S105Nivell1_1;
+package sprint1Tasca_S105Nivell1_1;
 
 import java.io.File;
 import java.util.Arrays;
