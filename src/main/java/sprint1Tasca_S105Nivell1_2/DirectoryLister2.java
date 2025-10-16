@@ -1,4 +1,4 @@
-package spring1Tasca_S105Nivell1_2;
+package sprint1Tasca_S105Nivell1_2;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
