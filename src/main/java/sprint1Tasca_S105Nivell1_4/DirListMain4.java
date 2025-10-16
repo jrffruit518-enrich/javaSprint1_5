@@ -1,4 +1,4 @@
-package spring1Tasca_S105Nivell1_4;
+package sprint1Tasca_S105Nivell1_4;
 
 /**
  * ClassName: DirListMain2
