@@ -1,4 +1,4 @@
-package spring1Tasca_S105Nivell1_3;
+package sprint1Tasca_S105Nivell1_3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
