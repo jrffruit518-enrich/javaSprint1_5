@@ -26,7 +26,6 @@ public class DirectoryLister2 {
         } else {
             System.out.println("Listing contents of: " + path);
             listDirectoryRecursively(dir, 0);
-
         }
     }
 
@@ -40,7 +39,8 @@ public class DirectoryLister2 {
             return;
         }
 
-        Arrays.sort(files, Comparator.comparing(File::getName , String.CASE_INSENSITIVE_ORDER));
+        Arrays.sort(files, Comparator.comparing(file -> file.getName().toLowerCase()));
+
         for (File file : files) {
             String type = file.isDirectory() ? "D" : "F";
             String lastModified = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date(file.lastModified()));
