@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * ClassName: DirectoryLister
- * Package: spring1Tasca_S105Nivell1_1
+ * Package: spring1Tasca_S105Nivell1_4
  * Description:
  * Author: Rong Jiang
  * Create:11/10/2025 - 17:00
@@ -41,7 +41,6 @@ public class DirectoryLister4 {
             listDirectoryRecursively(dir, 0, writer);
         } catch (FileNotFoundException e) {
             System.out.println("Error: Unable to create or write to file '" + outputFile + "'.");
-            e.printStackTrace();
         }
 
     }
@@ -88,17 +87,15 @@ public class DirectoryLister4 {
             return;
         }
         if (!filePath.toLowerCase().endsWith(".txt")) {
-            System.out.println("Warning: The file '" + filePath + "' may not be a TXT file.");
+            System.out.println("Error: The file '" + filePath + "' is not a TXT file. Only .txt files are supported.");
+            return;
         }
         try (BufferedReader bf = new BufferedReader(new FileReader(file));) {
             String line;
             while ((line = bf.readLine()) != null) {
                 System.out.println(line);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("Error: Unable to open file '" + filePath + "'.");
-            e.printStackTrace();
-        } catch (IOException e) {
+        }  catch (IOException e) {
             System.out.println("Error: Unable to read file '" + filePath + "': " + e.getMessage());
             e.printStackTrace();
         }

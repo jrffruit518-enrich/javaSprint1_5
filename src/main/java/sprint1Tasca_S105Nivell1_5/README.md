@@ -1,97 +1,83 @@
-# 1.5-Llistar-Directori-Nivell1
+markdown# 1.5-Llistar-Directori-Nivell1-Exercici5
 
 ## 📄 Descripción - Enunciado del ejercicio
 
-Este proyecto consiste en el desarrollo de una clase en Java que lista recursivamente el contenido de un directorio recibido como parámetro, mostrando un árbol de directorios con todos sus niveles, guardando el resultado en un archivo TXT, leyendo el contenido de un archivo TXT y mostrando su contenido por consola, y serializando/deserializando un objeto Java con la estructura del directorio en un archivo .ser. El programa:
+Este proyecto implementa una aplicación Java que serializa un objeto `Person` a un archivo `.ser` y lo deserializa, mostrando su contenido por consola. El programa:
 
-1,Recibe una ruta de directorio como parámetro (por argumentos de línea de comandos o una ruta predeterminada).
-
-2,Verifica si la ruta existe y es un directorio válido.
-
-3,Lista alfabéticamente los nombres de los archivos y subdirectorios en cada nivel, indicando:
-
-Si es un directorio (D) o un archivo (F).
-
-La fecha de última modificación.
-
-4,Guarda el listado en un archivo TXT especificado (output/output.txt por defecto).
-
-5,Lee el contenido de un archivo TXT especificado (por argumentos o el archivo generado por defecto) y lo muestra por consola.
-
-6,Serializa la estructura del directorio en un archivo .ser (output/directory.ser por defecto).
-
-7,Deserializa el archivo .ser y muestra el contenido del directorio por consola.
-
-8,Maneja casos de error, como rutas inexistentes, rutas que no son directorios, directorios vacíos, problemas de permisos de escritura/lectura, y errores de serialización/deserialización.
+1. Crea un objeto `Person` con atributos como nombre y edad.
+2. Serializa el objeto a un archivo `.ser` especificado (por argumentos de línea de comandos o predeterminado: `output/person.ser`).
+3. Deserializa el archivo `.ser` y muestra el contenido del objeto por consola.
+4. Maneja errores como archivos inexistentes, problemas de permisos de escritura/lectura, y errores de serialización/deserialización.
+5. Usa rutas relativas con `File.separator` para garantizar compatibilidad multiplataforma.
 
 ## 💻 Tecnologías Utilizadas
-Java 17
-
-IntelliJ IDEA (opcional, como entorno de desarrollo)
+- Java 17
+- IntelliJ IDEA (opcional, como entorno de desarrollo)
+- Maven (opcional, para estructura de proyecto)
 
 ## 📋 Requisitos
-
-Java JDK 17 o superior instalado.
-
-Un IDE o editor de texto compatible con Java (IntelliJ IDEA, Eclipse, VS Code, etc.).
-
-Permisos de escritura en el directorio donde se generarán los archivos de salida (output/output.txt y output/directory.ser).
-
-Permisos de lectura para el archivo TXT y el archivo .ser que se desean leer.
+- Java JDK 17 o superior instalado.
+- Un IDE o editor de texto compatible con Java (IntelliJ IDEA, Eclipse, VS Code, etc.).
+- Permisos de escritura en el directorio `output/` para generar el archivo `person.ser`.
+- Permisos de lectura para el archivo `.ser`.
 
 ## 🛠️ Instalación
-
-Clona este repositorio:
-
+1. Clona este repositorio:
 ```
-git clone https://github.com/jrffruit518-enrich/javaSpring1_5.git
+   git clone https://github.com/jrffruit518-enrich/javaSpring1_5.git
 ```
-
-Accede al directorio del proyecto:
+2. Accede al directorio del proyecto:
 ```
-cd 1.5-Llistar-Directori-Nivell1
-```
-Asegúrate de tener el JDK configurado correctamente.
+   cd 1.5-Llistar-Directori-Nivell1
+   ```
+3. Asegúrate de tener el JDK configurado correctamente.
 
 ## ▶️ Ejecución
-Compila los archivos Java:
+### Compilación
+Para un proyecto Maven:
 ```
-javac spring1Tasca_S105Nivell1_5/*.java
+mvn clean compile
 ```
-Ejecuta el programa principal, especificando una ruta de directorio como primer argumento (o usa la ruta predeterminada src/main/resources si no se proporciona) y, opcionalmente, un archivo TXT como segundo argumento (o usa output/output.txt por defecto). El programa generará el archivo TXT con el listado del directorio, mostrará el contenido del archivo TXT por consola, serializará la estructura del directorio en un archivo .ser (output/directory.ser), y deserializará y mostrará el contenido del archivo .ser por consola:
+Para un proyecto Java estándar:
 ```
-java spring1Tasca_S105Nivell1_5.DirListMain5 <ruta-del-directorio> <ruta-del-archivo-txt>
+javac -d target src/main/java/sprint1Tasca_S105Nivell1_5/*.java
+```
+### Ejecución
+Ejecuta el programa principal, especificando la ruta del archivo `.ser` como argumento (predeterminada: `output/person.ser`). El programa serializa un objeto `Person` al archivo especificado y lo deserializa, mostrando el resultado por consola.
+
+Comando:
+```
+java -cp target sprint1Tasca_S105Nivell1_5.PersonMain <ruta-del-archivo-ser>
 ```
 Ejemplo:
 ```
-java spring1Tasca_S105Nivell1_5.DirListMain5 src/main/resources output/output.txt
+java -cp target sprint1Tasca_S105Nivell1_5.PersonMain output/person.ser
 ```
-Verifica los archivos de salida generados en output/output.txt y output/directory.ser, y revisa la salida en consola para el contenido del archivo TXT y la información deserializada.
+Verifica el archivo generado en `output/person.ser` y la salida en consola para el objeto deserializado.
 
 ## 🌐 Desplegament
+No aplica, ya que es un programa de consola que genera y lee archivos `.ser` localmente.
 
-No aplica para este ejercicio, ya que es un programa local para consola que genera y lee archivos TXT y .ser.
+Opcionalmente, empaqueta como `.jar`:
+jar cfe LlistarDirectoriEx5.jar sprint1Tasca_S105Nivell1_5.PersonMain -C target .
+text## 🤝 Contribucions
+¡Las contribuciones son bienvenidas! Sigue estos pasos:
+1. Haz un fork del repositorio.
+2. Crea una nueva rama:
+```
+   git checkout -b feature/NuevaFuncionalidad
+```
+3. Realiza tus cambios y haz commit:
+```
+   git commit -m "Añade nueva funcionalidad"
+```
+4. Sube los cambios a tu rama:
+```
+   git push origin feature/NuevaFuncionalidad
+ ```
+5. Abre un pull request para revisión.
 
-Opcionalmente, se puede empaquetar como un archivo .jar ejecutable:
-```
-jar cfe LlistarDirectori.jar spring1Tasca_S105Nivell1_5.DirListMain5 -C out .
-```
-🤝 Contribucions
-
-¡Las contribuciones son bienvenidas! Por favor, sigue los siguientes pasos para contribuir:
-
-Haz un fork del repositorio.
-
-Crea una nueva rama:
-```
-git checkout -b feature/NuevaFuncionalidad
-```
-Realiza tus cambios y haz commit:
-```
-git commit -m "Añade nueva funcionalidad"
-```
-Sube los cambios a tu rama:
-```
-git push origin feature/NuevaFuncionalidad
-```
-Abre un pull request para revisión.
+## 📝 Notas
+- Usa `File.separator` para rutas relativas, garantizando compatibilidad en Windows y otros sistemas.
+- Los mensajes de error son user-friendly. Para depuración detallada, ejecuta en un IDE.
+- El programa sigue las mejores prácticas de Sprint 0, incluyendo manejo de errores y uso de `@Serial` para `serialVersionUID`.
