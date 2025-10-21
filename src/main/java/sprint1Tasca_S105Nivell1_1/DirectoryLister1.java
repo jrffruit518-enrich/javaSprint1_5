@@ -23,10 +23,7 @@ public class DirectoryLister1 {
             if (names == null || names.length == 0) {
                 System.out.println("The directory '" + path + "' is empty.");
             } else {
-                Arrays.sort(names);
-                for (String name : names) {
-                    System.out.println(name);
-                }
+                Arrays.stream(names).sorted().forEach(System.out::println);
             }
         }
     }
