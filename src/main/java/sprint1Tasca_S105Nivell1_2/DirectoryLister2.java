@@ -39,15 +39,11 @@ public class DirectoryLister2 {
             System.out.println(getIndent(level) + "Directory is empty.");
             return;
         }
-        Arrays.sort(files, new Comparator<File>() {
-            @Override
-            public int compare(File file1, File file2) {
-                return file1.getName().compareTo(file2.getName());
-            }
-        });
+
+        Arrays.sort(files, Comparator.comparing(File::getName , String.CASE_INSENSITIVE_ORDER));
         for (File file : files) {
             String type = file.isDirectory() ? "D" : "F";
-            String lastModified = new SimpleDateFormat("dd-MM-yyyyy HH:mm:ss").format(new Date(file.lastModified()));
+            String lastModified = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date(file.lastModified()));
             System.out.println(getIndent(level) + file.getName() + " (" + type + ") - Last modified: " + lastModified);
             if (file.isDirectory()) {
                 listDirectoryRecursively(file, level + 1);
