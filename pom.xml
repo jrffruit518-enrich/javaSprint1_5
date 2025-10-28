@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>JavaSprint1_5</artifactId>
+  <artifactId>JavaSprint1_5JavaUtils</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>JavaSprint1_5</name>
+  <name>JavaSprint1_5JavaUtils</name>
   <url>http://www.example.com</url>
 
   <properties>
